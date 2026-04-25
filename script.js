@@ -10,8 +10,15 @@ const btn6 = document.querySelector("#btn6");
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
 const btn3 = document.querySelector("#btn3");
+const btn0 = document.querySelector("#btn0");
 const adicao = document.querySelector("#adicao");
+const subtracao = document.querySelector("#subtracao")
+const multiplicacao = document.querySelector("#multiplicacao")
+const divisao = document.querySelector("#divisao")
+const ponto = document.querySelector("#ponto");
 const igual = document.querySelector("#igual")
+const deletar = document.querySelector("#deletar")
+
 
 btn7.addEventListener("click",function(){
     visor.value += "7"
@@ -38,13 +45,7 @@ btn6.addEventListener("click",function(){
 })
 
 btn1.addEventListener("click",function(){
-    if (visor.value==""){
-        visor.value += "Eu"
-    } else if (visor.value=="Eu+"){
-        visor.value += "Você"
-    } else{
-        visor.value += "Eu"
-    }
+    visor.value += "1"
     
 })
 
@@ -56,6 +57,10 @@ btn3.addEventListener("click",function(){
     visor.value += "3"
 })
 
+btn0.addEventListener("click",function(){
+    visor.value += "0"
+})
+
 
 c.addEventListener("click", function(){
     visor.value = "";
@@ -65,18 +70,35 @@ adicao.addEventListener("click", function(){
     visor.value += "+";
 })
 
+subtracao.addEventListener("click", function(){
+    visor.value += "-";
+})
+
+multiplicacao.addEventListener("click", function(){
+    visor.value += "x";
+})
+
+ponto.addEventListener("click", function(){
+    visor.value += ".";
+})
+
+
+divisao.addEventListener("click", function(){
+    visor.value += "\u00F7";
+})
+
+deletar.addEventListener("click", function () {
+    visor.value = visor.value.slice(0, -1);
+})
+
 igual.addEventListener("click", function(){
-    if (visor.value == "Eu+Você"){
-        visor.value = "";
-        visor.value += "Kennedy e Emilly = Amor eterno <3";
-    } else{ 
-        visor.value += none
-    }
+    let conta = visor.value
+        .replace(/÷/g, "/")
+        .replace(/x/g, "*");
+    visor.value = eval (conta)
 })
 
 
 
 
-
 console.log("conectado!")
-console.log(btn1)
